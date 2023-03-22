@@ -236,6 +236,28 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mOk-SC-aue" secondAttribute="trailing" constant="20" id="b6Q-3G-XTq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn0" destination="6Hy-Qi-0VD" id="eLf-qj-obB"/>
+                        <outlet property="btn1" destination="nbP-me-yM7" id="2zX-Jo-04S"/>
+                        <outlet property="btn2" destination="d3V-Wm-b4d" id="Vmn-KI-NBL"/>
+                        <outlet property="btn3" destination="CSo-TA-RQW" id="urA-11-FCg"/>
+                        <outlet property="btn4" destination="Vu0-bq-i0p" id="08E-gS-cig"/>
+                        <outlet property="btn5" destination="DaL-iq-8s7" id="B1s-0o-HXS"/>
+                        <outlet property="btn6" destination="HHz-d6-tLG" id="KEe-o7-5ap"/>
+                        <outlet property="btn7" destination="o7N-9i-l8P" id="ZiZ-LL-XzP"/>
+                        <outlet property="btn8" destination="yzM-s3-KCQ" id="FyV-1k-Ta5"/>
+                        <outlet property="btn9" destination="hW5-hL-qIE" id="mW2-Kw-ZjM"/>
+                        <outlet property="clearBtn" destination="sBe-zW-jCA" id="pPq-OP-RyP"/>
+                        <outlet property="displayLabel" destination="N8E-eM-F9i" id="ZjZ-Ek-uu2"/>
+                        <outlet property="divideBtn" destination="s5u-Db-3tN" id="viw-qy-IuN"/>
+                        <outlet property="dotBtn" destination="O7h-Rl-GtM" id="6Pm-zU-ahx"/>
+                        <outlet property="equalBtn" destination="Twq-Mh-xGg" id="AhB-9Y-8Zd"/>
+                        <outlet property="minusBtn" destination="crq-Jz-fwK" id="ePE-L2-znb"/>
+                        <outlet property="multiplyBtn" destination="6uC-ZM-x8F" id="X8s-tL-h1c"/>
+                        <outlet property="percentBtn" destination="fWQ-1S-2jA" id="coo-g8-Sks"/>
+                        <outlet property="plusBtn" destination="Xh9-gF-Pgg" id="OBY-AA-ygJ"/>
+                        <outlet property="plusMinusBtn" destination="kZ8-ha-lvY" id="Hww-ns-04a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
