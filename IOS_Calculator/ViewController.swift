@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel:UILabel!
-    @IBOutlet weak var btn0:UIButton
+    @IBOutlet weak var btn0:UIButton!
     @IBOutlet weak var btn1:UIButton!
     @IBOutlet weak var btn2:UIButton!
     @IBOutlet weak var btn3:UIButton!
@@ -29,11 +29,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var percentBtn:UIButton!
     @IBOutlet weak var plusMinusBtn:UIButton!
     @IBOutlet weak var clearBtn:UIButton!
+
+//    override func viewWillLayoutSubviews(){
+//        configRoundBtn()
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configRoundBtn()
+        
     }
-
+    
+    func configRoundBtn(){
+        let cycleBtnList:[UIButton] = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, dotBtn, equalBtn, plusBtn, minusBtn, multiplyBtn, divideBtn, percentBtn, plusMinusBtn, clearBtn]
+        cycleBtnList.forEach{ (btn) in
+//            print(btn.bounds.height)
+            btn.layer.cornerRadius = btn.bounds.height / 2
+            btn.clipsToBounds = true
+        }
+        
+    }
 
 }
 
