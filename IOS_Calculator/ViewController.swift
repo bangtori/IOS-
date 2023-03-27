@@ -32,6 +32,8 @@ class ViewController: UIViewController {
 
     var prevNumber:String = "0"
     var calculating:Bool = false
+    var operatorIdx:Int?
+    var operatorBtn = [UIButton]()
 //    override func viewWillLayoutSubviews(){
 //        configRoundBtn()
 //    }
@@ -39,9 +41,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configRoundBtn()
         displayLabel.adjustsFontSizeToFitWidth = true
+        initOperatorBtnArray()
         
     }
-    
+    func initOperatorBtnArray(){
+        operatorBtn.append(plusBtn)
+        operatorBtn.append(minusBtn)
+        operatorBtn.append(multiplyBtn)
+        operatorBtn.append(divideBtn)
+    }
     func configRoundBtn(){
         let cycleBtnList:[UIButton] = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, dotBtn, equalBtn, plusBtn, minusBtn, multiplyBtn, divideBtn, percentBtn, plusMinusBtn, clearBtn]
         cycleBtnList.forEach{ (btn) in
@@ -54,7 +62,14 @@ class ViewController: UIViewController {
     
     @IBAction func numberBtnClick(_ sender:UIButton){
         clearBtn.setTitle("C", for: .normal)
+        
         if calculating {
+            for btn in operatorBtn{
+                if btn.tag == operatorIdx{
+                    btn.backgroundColor = .orange
+                    btn.setTitleColor(.white, for: .normal)
+                }
+            }
             displayLabel.text = String(sender.tag)
             calculating = false
         }else{
@@ -62,6 +77,24 @@ class ViewController: UIViewController {
                 displayLabel.text = String(sender.tag)
             }else{
                 displayLabel.text = displayLabel.text!+String(sender.tag)
+            }
+        }
+    }
+    @IBAction func operatorBtnClick(_ sender:UIButton){
+        if calculating {
+            for btn in operatorBtn{
+                if btn.tag == operatorIdx{
+                    btn.backgroundColor = .orange
+                    btn.setTitleColor(.white, for: .normal)
+                }
+            }
+        }
+        calculating = true
+        operatorIdx = sender.tag
+        for btn in operatorBtn{
+            if sender == btn {
+                btn.backgroundColor = .white
+                btn.setTitleColor(.orange, for: .normal)
             }
         }
     }
