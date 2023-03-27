@@ -91,6 +91,7 @@ class ViewController: UIViewController {
         }
         calculating = true
         operatorIdx = sender.tag
+        prevNumber = displayLabel.text ?? "0"
         for btn in operatorBtn{
             if sender == btn {
                 btn.backgroundColor = .white
@@ -98,6 +99,9 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func equalBtnClick(_ sender:UIButton){
+        
+    }
 }
 
