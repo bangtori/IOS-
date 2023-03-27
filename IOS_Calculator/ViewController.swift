@@ -30,12 +30,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var plusMinusBtn:UIButton!
     @IBOutlet weak var clearBtn:UIButton!
 
+    var prevNumber:String = "0"
+    var calculating:Bool = false
 //    override func viewWillLayoutSubviews(){
 //        configRoundBtn()
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configRoundBtn()
+        displayLabel.adjustsFontSizeToFitWidth = true
         
     }
     
@@ -47,6 +50,20 @@ class ViewController: UIViewController {
             btn.clipsToBounds = true
         }
         
+    }
+    
+    @IBAction func numberBtnClick(_ sender:UIButton){
+        clearBtn.setTitle("C", for: .normal)
+        if calculating {
+            displayLabel.text = String(sender.tag)
+            calculating = false
+        }else{
+            if displayLabel.text == "0" {
+                displayLabel.text = String(sender.tag)
+            }else{
+                displayLabel.text = displayLabel.text!+String(sender.tag)
+            }
+        }
     }
 
 }
