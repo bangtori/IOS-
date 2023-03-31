@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     var calculating:Bool = false
     var operatorIdx:Int?
     var operatorBtn = [UIButton]()
+    var dotState:Bool = false
 //    override func viewWillLayoutSubviews(){
 //        configRoundBtn()
 //    }
@@ -72,6 +73,7 @@ class ViewController: UIViewController {
             }
             displayLabel.text = String(sender.tag)
             calculating = false
+            dotState = false
         }else{
             if displayLabel.text == "0" {
                 displayLabel.text = String(sender.tag)
@@ -91,7 +93,7 @@ class ViewController: UIViewController {
         }
         calculating = true
         operatorIdx = sender.tag
-        prevNumber = displayLabel.text ?? "0"
+        prevNumber = removePoint(num: displayLabel.text!)
         for btn in operatorBtn{
             if sender == btn {
                 btn.backgroundColor = .white
@@ -101,7 +103,48 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equalBtnClick(_ sender:UIButton){
-        
+        var result:Double
+        let currentNumber = removePoint(num: displayLabel.text!)
+        switch operatorIdx{
+        case 11 : //+
+            result = (Double(prevNumber)!) + (Double(currentNumber)!)
+            displayLabel.text = removePoint(num: String(result))
+            break
+        case 12: //-
+            result = (Double(prevNumber)!) - (Double(currentNumber)!)
+            displayLabel.text = removePoint(num: String(result))
+            break
+        case 13: //*
+            result = (Double(prevNumber)!) * (Double(currentNumber)!)
+            displayLabel.text = removePoint(num: String(result))
+            break
+        case 14: // /
+            //if currentNumber == "0"
+            break
+        default:
+            break
+            
+        }
+    }
+    
+    @IBAction func dotBtnClick(_ sender:UIButton){
+        print(dotState)
+        if dotState == false{
+            displayLabel.text = displayLabel.text!+"."
+            dotState = true
+        }
+    }
+    func removePoint(num:String)->String{
+        var floatNumString = num
+        while floatNumString.last == "0" {
+            floatNumString.removeLast()
+        }
+        if floatNumString.last == "."{
+            floatNumString.removeLast()
+            dotState = false
+        }
+
+        return floatNumString
     }
 }
 
