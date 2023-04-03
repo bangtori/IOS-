@@ -165,7 +165,10 @@ class ViewController: UIViewController {
     }
     @IBAction func plusMinusBtnClick(_ sender:UIButton){
         let result:Double = Double(displayLabel.text!)! * -1
-        print(result)
+        displayLabel.text = removePoint(num: String(result))
+    }
+    @IBAction func percentBtnClick(_ sender:UIButton){
+        let result:Double = Double(displayLabel.text!)! * 0.01
         displayLabel.text = removePoint(num: String(result))
     }
 }
