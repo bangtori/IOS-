@@ -153,5 +153,15 @@ class ViewController: UIViewController {
 
         return floatNumString
     }
+    
+    @IBAction func clearBtnClick(_ sender:UIButton){
+        displayLabel.text = "0"
+        prevNumber = "0"
+        calculating = false
+        operatorIdx = nil
+        dotState = false
+        
+        clearBtn.setTitle("AC", for: .normal)
+    }
 }
 
