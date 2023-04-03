@@ -163,5 +163,10 @@ class ViewController: UIViewController {
         
         clearBtn.setTitle("AC", for: .normal)
     }
+    @IBAction func plusMinusBtnClick(_ sender:UIButton){
+        let result:Double = Double(displayLabel.text!)! * -1
+        print(result)
+        displayLabel.text = removePoint(num: String(result))
+    }
 }
 
