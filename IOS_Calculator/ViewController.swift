@@ -105,6 +105,7 @@ class ViewController: UIViewController {
     @IBAction func equalBtnClick(_ sender:UIButton){
         var result:Double
         let currentNumber = removePoint(num: displayLabel.text!)
+        calculating = true
         switch operatorIdx{
         case 11 : //+
             result = (Double(prevNumber)!) + (Double(currentNumber)!)
