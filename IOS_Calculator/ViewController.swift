@@ -119,7 +119,11 @@ class ViewController: UIViewController {
             displayLabel.text = removePoint(num: String(result))
             break
         case 14: // /
-            //if currentNumber == "0"
+            if currentNumber == "0" {
+                //Error처리
+            }
+            result = (Double(prevNumber)!) / (Double(currentNumber)!)
+            displayLabel.text = removePoint(num: String(result))
             break
         default:
             break
@@ -136,6 +140,9 @@ class ViewController: UIViewController {
     }
     func removePoint(num:String)->String{
         var floatNumString = num
+        if floatNumString == "0" {
+            return floatNumString
+        }
         while floatNumString.last == "0" {
             floatNumString.removeLast()
         }
